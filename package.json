@@ -1,0 +1,52 @@
+{
+  "name": "cool-fe",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "lint:prettier": "prettier --write --loglevel warn \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",
+    "lint:eslint": "eslint \"{src,mock}/**/*.{vue,ts,tsx}\" --fix"
+  },
+  "dependencies": {
+    "@cool-vue/crud": "^5.5.9",
+    "axios": "^0.27.2",
+    "echarts": "^5.4.0",
+    "element-plus": "^2.2.13",
+    "lodash": "^4.17.21",
+    "nprogress": "^0.2.0",
+    "pinia": "^2.0.20",
+    "store": "^2.0.12",
+    "unocss": "^0.45.22",
+    "vue": "^3.2.37",
+    "vue-echarts": "^6.2.3",
+    "vue-router": "^4.1.5"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.168",
+    "@types/node": "^18.7.6",
+    "@types/nprogress": "^0.2.0",
+    "@types/store": "^2.0.2",
+    "@typescript-eslint/eslint-plugin": "^4.20.0",
+    "@typescript-eslint/parser": "^4.20.0",
+    "@unocss/preset-uno": "^0.45.23",
+    "@vitejs/plugin-vue": "^3.0.3",
+    "eslint": "^7.23.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-vue": "^7.13.0",
+    "prettier": "^2.7.1",
+    "sass": "^1.55.0",
+    "sass-loader": "^13.0.2",
+    "typescript": "^4.6.4",
+    "vite": "^3.0.7",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-dts": "^0.9.9",
+    "vite-plugin-mock": "^2.9.6",
+    "vite-plugin-style-import": "^1.0.1",
+    "vite-svg-loader": "^2.1.0",
+    "vue-tsc": "^0.39.5"
+  }
+}
