@@ -1,7 +1,5 @@
 <template>
-  <div class="view-home scroller1">
-    test
-  </div>
+	<div>views/home</div>
 </template>
 
 <script lang="ts" setup>

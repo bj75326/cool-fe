@@ -1,132 +1,133 @@
 // @ts-nocheck
 import { isDev, config, proxy } from "../config";
-import { isObject } from "lodash-es";
+import { isObject } from "lodash";
 import request from "./request";
 
-export function Service (
-  value:
-    | string
-    | {
-      namespace?: string;
-      url?: string;
-      mock?: boolean;
-    }
+export function Service(
+	value:
+		| string
+		| {
+				namespace?: string;
+				url?: string;
+				mock?: boolean;
+		  }
 ) {
-  return function (target: any) {
-    // 命名
-    if (typeof value == "string") {
-      target.prototype.namespace = value;
-    }
+	return function (target: any) {
+		// 命名
+		if (typeof value == "string") {
+			target.prototype.namespace = value;
+		}
 
-    // 复杂项
-    if (isObject(value)) {
-      target.prototype.namespace = value.namespace;
-      target.prototype.mock = value.mock;
+		// 复杂项
+		if (isObject(value)) {
+			target.prototype.namespace = value.namespace;
+			target.prototype.mock = value.mock;
 
-      // 代理
-      if (value.proxy) {
-        target.prototype.url = proxy[value.proxy].target;
-      } else {
-        if (value.url) {
-          target.prototype.url = value.url;
-        }
-      }
-    }
-  };
+			// 代理
+			if (value.proxy) {
+				target.prototype.url = proxy[value.proxy].target;
+			} else {
+				if (value.url) {
+					target.prototype.url = value.url;
+				}
+			}
+		}
+	};
 }
 
 export class BaseService {
-  constructor(
-    options = {} as {
-      namespace?: string;
-    }
-  ) {
-    if (options?.namespace) {
-      this.namespace = options.namespace;
-    }
-  }
+	constructor(
+		options = {} as {
+			namespace?: string;
+		}
+	) {
+		if (options?.namespace) {
+			this.namespace = options.namespace;
+		}
+	}
 
-  request (
-    options = {} as {
-      params?: any;
-      data?: any;
-      url: string;
-      method?: "GET" | "get" | "POST" | "post" | string;
-      [key: string]: any;
-    }
-  ) {
-    if (!options.params) options.params = {};
+	request(
+		options = {} as {
+			params?: any;
+			data?: any;
+			url: string;
+			method?: "GET" | "get" | "POST" | "post" | string;
+			[key: string]: any;
+		}
+	) {
+		if (!options.params) options.params = {};
 
-    let ns = "";
+		let ns = "";
 
-    // 是否 mock 模式
-    if (this.mock || config.test.mock) {
-      // 测试
-    } else {
-      if (isDev) {
-        ns = this.proxy || config.baseUrl;
-      } else {
-        ns = this.proxy ? this.url : config.baseUrl;
-      }
-    }
+		// 是否 mock 模式
+		if (this.mock || config.test.mock) {
+			// 测试
+		} else {
+			if (isDev) {
+				ns = this.proxy || config.baseUrl;
+			} else {
+				ns = this.proxy ? this.url : config.baseUrl;
+			}
+		}
 
-    // 拼接前缀
-    if (this.namespace) {
-      ns += "/" + this.namespace;
-    }
+		// 拼接前缀
+		if (this.namespace) {
+			ns += "/" + this.namespace;
+		}
 
-    // 处理地址
-    if (options.proxy === undefined || options.proxy) {
-      options.url = ns + options.url;
-    }
+		// 处理地址
+		if (options.proxy === undefined || options.proxy) {
+			options.url = ns + options.url;
+		}
 
-    return request(options);
-  }
+		console.log('request ', options)
+		return request(options);
+	}
 
-  list (data: any) {
-    return this.request({
-      url: "/list",
-      method: "POST",
-      data
-    });
-  }
+	list(data: any) {
+		return this.request({
+			url: "/list",
+			method: "POST",
+			data
+		});
+	}
 
-  page (data: { page?: number; size?: number;[key: string]: any }) {
-    return this.request({
-      url: "/page",
-      method: "POST",
-      data
-    });
-  }
+	page(data: { page?: number; size?: number; [key: string]: any }) {
+		return this.request({
+			url: "/page",
+			method: "POST",
+			data
+		});
+	}
 
-  info (params: { id?: number | string;[key: string]: any }) {
-    return this.request({
-      url: "/info",
-      params
-    });
-  }
+	info(params: { id?: number | string; [key: string]: any }) {
+		return this.request({
+			url: "/info",
+			params
+		});
+	}
 
-  update (data: { id?: number | string;[key: string]: any }) {
-    return this.request({
-      url: "/update",
-      method: "POST",
-      data
-    });
-  }
+	update(data: { id?: number | string; [key: string]: any }) {
+		return this.request({
+			url: "/update",
+			method: "POST",
+			data
+		});
+	}
 
-  delete (data: { ids?: number[] | string[];[key: string]: any }) {
-    return this.request({
-      url: "/delete",
-      method: "POST",
-      data
-    });
-  }
+	delete(data: { ids?: number[] | string[]; [key: string]: any }) {
+		return this.request({
+			url: "/delete",
+			method: "POST",
+			data
+		});
+	}
 
-  add (data: any) {
-    return this.request({
-      url: "/add",
-      method: "POST",
-      data
-    });
-  }
+	add(data: any) {
+		return this.request({
+			url: "/add",
+			method: "POST",
+			data
+		});
+	}
 }

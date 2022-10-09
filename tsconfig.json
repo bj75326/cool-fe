@@ -1,39 +1,29 @@
 {
-  "compilerOptions": {
-    "target": "ESNext",
-    "useDefineForClassFields": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "strict": true,
-    "jsx": "preserve",
-    "sourceMap": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "lib": [
-      "ESNext",
-      "DOM"
-    ],
-    "paths": {
-      "/$/*": [
-        "./src/modules/*"
-      ],
-      "/@/*": [
-        "./src/*"
-      ],
-      "/#/*": [
-        "./types/*"
-      ]
-    }
-  },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue"
-  ],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
-  ]
+	"compilerOptions": {
+		"target": "esnext",
+		"module": "esnext",
+		"moduleResolution": "node",
+		"strict": true,
+		"jsx": "preserve",
+		"sourceMap": true,
+		"resolveJsonModule": true,
+		"experimentalDecorators": true,
+		"esModuleInterop": true,
+		"lib": ["esnext", "dom"],
+		"types": ["vite/client", "vite-svg-loader"],
+		"paths": {
+			"/$/*": ["./src/modules/*"],
+			"/@/*": ["./src/*"],
+			"/#/*": ["./types/*"]
+		}
+	},
+	"include": [
+		"src/**/*.ts",
+		"src/**/*.d.ts",
+		"src/**/*.tsx",
+		"src/**/*.vue",
+		"build/svg.ts",
+		"env.d.ts"
+	],
+	"exclude": ["node_modules", "dist"]
 }

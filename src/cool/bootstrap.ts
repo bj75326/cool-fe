@@ -6,46 +6,47 @@ import { useBase } from "/$/base";
 import mitt from "mitt";
 import VueECharts from "vue-echarts";
 import ElementPlus from "element-plus";
-
 import "element-plus/theme-chalk/src/index.scss";
 import "uno.css";
 
 export async function bootstrap (Vue: App) {
-  // 缓存
-  Vue.use(createPinia()); 
-  
-  // ui库
-  Vue.use(ElementPlus);
+	console.log('bootstrap')
+	// 缓存
+	Vue.use(createPinia());
 
-  // 事件通讯
-  Vue.provide("mitt", mitt());
-  
-  // 可视图表
-  Vue.component("v-chart", VueECharts);
+	// ui库
+	Vue.use(ElementPlus);
 
-  // 基础
-  const { app, user, menu } = useBase();  
+	// 事件通讯
+	Vue.provide("mitt", mitt());
 
-  // 加载模块
-  useModule(Vue);
+	// 可视图表
+	Vue.component("v-chart", VueECharts);
 
-  // 取缓存视图
-  viewer.add(menu.routes);
+	// 基础
+	const { app, user, menu } = useBase();
 
-  // 路由
-  Vue.use(router);
+	// 加载模块
+	useModule(Vue);
 
-  // 开启
-  app.showLoading();
+	// 取缓存视图
+	viewer.add(menu.routes);
+	
+	console.log('###### router.getRoutes() ###### ', router.getRoutes());
 
-  if (user.token) {
-    // 获取用户信息
-    user.get();
+	// 路由
+	Vue.use(router);
 
-    // 获取菜单权限
-    await menu.get();
-  }
+	// 开启
+	app.showLoading();
 
-  app.hideLoading();
+	if (user.token) {
+		// 获取用户信息
+		user.get();
 
+		// 获取菜单权限
+		await menu.get();
+	}
+
+	app.hideLoading();
 }

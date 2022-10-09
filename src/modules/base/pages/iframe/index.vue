@@ -1,7 +1,7 @@
 <template>
-  <div v-loading="loading" class="page-iframe" element-loading-text="拼命加载中">
-    <iframe :src="url" frameborder="0"></iframe>
-  </div>
+	<div v-loading="loading" class="page-iframe" element-loading-text="拼命加载中">
+		<iframe :src="url" frameborder="0"></iframe>
+	</div>
 </template>
 
 <script>
@@ -35,9 +35,9 @@ export default {
 
 <style lang="scss" scoped>
 .page-iframe {
-  iframe {
-    height: 100%;
-    width: 100%;
-  }
+	iframe {
+		height: 100%;
+		width: 100%;
+	}
 }
 </style>
