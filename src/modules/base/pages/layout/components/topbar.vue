@@ -1,79 +1,79 @@
 <template>
-	<a-menu v-if="app.info.menu.isGroup" />
+  <a-menu v-if="app.info.menu.isGroup"/>
 
-	<div class="app-topbar">
-		<div
+  <div class="app-topbar">
+    <div
 			class="app-topbar__collapse"
 			:class="{
 				unfold: !app.isFold
 			}"
 			@click="app.fold()"
 		>
-			<i class="cl-iconfont cl-icon-fold"></i>
-		</div>
+      <i class="cl-iconfont cl-icon-fold"></i>
+    </div>
 
-		<!-- 路由导航 -->
-		<route-nav />
+    <!-- 路由导航 -->
+    <route-nav />
 
-		<div class="flex1"></div>
+    <div class="flex1"></div>
 
-		<!-- 工具栏 -->
-		<ul class="app-topbar__tools">
-			<li>
-				<cl-chat />
-			</li>
+    <!-- 工具栏 -->
+    <ul class="app-topbar__tools">
+      <li>
+        <!-- <cl-chat /> -->
+      </li>
+    
+      <li>
+        <!-- <cl-theme /> -->
+      </li>
+    </ul>
 
-			<li>
-				<cl-theme />
-			</li>
-		</ul>
-
-		<!-- 用户信息 -->
-		<div class="app-topbar__user" v-if="user.info">
-			<el-dropdown trigger="click" :hide-on-click="false" @command="onCommand">
-				<span class="el-dropdown-link">
-					<span class="name">{{ user.info.nickName }}</span>
-					<img class="avatar" :src="user.info.headImg" />
-				</span>
-
-				<template #dropdown>
-					<el-dropdown-menu>
-						<el-dropdown-item command="my">
-							<i class="cl-iconfont cl-icon-user"></i>
-							<span>个人中心</span>
-						</el-dropdown-item>
-						<el-dropdown-item command="exit">
-							<i class="cl-iconfont cl-icon-exit"></i>
-							<span>退出</span>
-						</el-dropdown-item>
-					</el-dropdown-menu>
-				</template>
-			</el-dropdown>
-		</div>
-	</div>
+    <!-- 用户信息 -->
+    <div class="app-topbar__user" v-if="user.info">
+      <el-dropdown trigger="click" :hide-on-click="false" @command="onCommand">
+        <span class="el-dropdown-link">
+          <span class="name">{{ user.info.nickName }}</span>
+          <img class="avatar" :src="user.info.headImg" />
+        </span>
+        <template #dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item command="my">
+              <i class="cl-iconfont cl-icon-user"></i>
+              <span>个人中心</span>
+            </el-dropdown-item>
+            <el-dropdown-item command="exit">
+              <i class="cl-iconfont cl-icon-exit"></i>
+              <span>退出</span>
+            </el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
+    </div>
+  </div>
 </template>
 
 <script lang="ts" setup>
-import { useBase } from "/$/base";
-import { useCool } from "/@/cool";
-import RouteNav from "./route-nav.vue";
-import AMenu from "./amenu.vue";
+import { useBase } from '/$/base';
+import { useCool } from '/@/cool';
+import RouteNav from './route-nav.vue';
+import Amenu from './amenu.vue';
 
 const { router, service } = useCool();
 const { user, app } = useBase();
 
 // 跳转
-function onCommand(name: string) {
-	switch (name) {
-		case "my":
-			router.push("/my/info");
-			break;
-		case "exit":
-			service.base.comm.logout();
-			user.logout();
-			break;
-	}
+function onCommand (name: string) {
+  switch (name) {
+    case "my":
+      router.push("/my/info");
+      break;
+    case "exit":
+      service.base.comm.logout();
+      user.logout();
+      break;
+  }
 }
+
 </script>
 
 <style lang="scss" scoped>
@@ -152,5 +152,5 @@ function onCommand(name: string) {
 			margin-left: 10px;
 		}
 	}
-}
+}  
 </style>
