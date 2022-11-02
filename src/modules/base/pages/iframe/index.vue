@@ -4,33 +4,33 @@
 	</div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
-	data() {
+	data () {
 		return {
 			loading: false,
-			url: ""
+			url: '',	
 		};
 	},
 
 	watch: {
 		$route: {
-			handler({ meta }) {
-				this.url = meta.iframeUrl;
+			handler ({ meta }) {
+				this.url = meta.iframeUrl;	
 			},
-			immediate: true
-		}
+			immediate: true,
+		}		
 	},
 
-	mounted() {
-		const iframe = this.$el.querySelector("iframe");
+	mounted () {
+		const iframe = this.$el.querySelector("iframe");	
 		this.loading = true;
 
 		iframe.onload = () => {
 			this.loading = false;
 		};
 	}
-};
+}
 </script>
 
 <style lang="scss" scoped>
