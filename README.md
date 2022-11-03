@@ -445,3 +445,10 @@
 2. eps.json // eps 文件，格式为 [method, path, name]
 3. entity.d.ts // entity 描述文件，基于 eps column 生成
 
+## create menu
+
+
+
+# 权限管理
+
+# CRUD
