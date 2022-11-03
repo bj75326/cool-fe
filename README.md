@@ -1,6 +1,6 @@
-#eps
+# eps
 
-eps 结构
+## eps 结构
 
 ```javascript
 {
@@ -197,19 +197,7 @@ eps 结构
         }
       ],
       "prefix": "/admin/base/sys/department"
-    },
-    {
-      
-    },
-    {
-      
-    },
-    {
-      
-    },
-    {
-      
-    },
+    },{...},{...},{...},{...},
     {
       "module": "base",
       "api": [
@@ -381,18 +369,13 @@ eps 结构
       "prefix": "/admin/base/sys/user"
     }
   ],
-  "demo": [
-    {}
-  ],
-  "space": [
-    {},
-    {}
-  ],
-  "task": [
-    {}
-  ]
+  "demo": [{...}],
+  "space": [{...},{...}],
+  "task": [{...}]
 }
 ```
+
+## 扩充 service 对象
 
 基于 eps 数据，useEps 解析数据并使用 BaseService 类扩充 service，使之变成
 
@@ -443,11 +426,22 @@ eps 结构
     };
   };
   // 类似 base
-  chat: {};
-  demo: {};
+  chat: {...};
+  demo: {...};
   request: Function;
-  space: {};
-  task: {};
-  test: {};
+  space: {...};
+  task: {...};
+  test: {...};
 }
 ```
+
+其中 chat 与 test 是 useModule 解析模块时添加的 service。
+
+## createDts
+
+使用 vite-cool 插件，劫持路径 "/__cool_eps" 的请求生成
+
+1. service.d.ts // service 对象描述文件
+2. eps.json // eps 文件，格式为 [method, path, name]
+3. entity.d.ts // entity 描述文件，基于 eps column 生成
+
