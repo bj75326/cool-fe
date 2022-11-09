@@ -435,15 +435,15 @@
 }
 ```
 
-其中 chat 与 test 是 useModule 解析模块时添加的 service。
+> 其中 chat 与 test 是 useModule 解析模块时添加的 service。
 
 ## createDts
 
 使用 vite-cool 插件，劫持路径 "/__cool_eps" 的请求生成
 
-1. service.d.ts // service 对象描述文件
-2. eps.json // eps 文件，格式为 [method, path, name]
-3. entity.d.ts // entity 描述文件，基于 eps column 生成
+1. service.d.ts `// service 对象描述文件`
+2. eps.json `// eps 文件，格式为 [method, path, name]`
+3. entity.d.ts `// entity 描述文件，基于 eps column 生成`
 
 ## create menu
 
@@ -455,18 +455,18 @@
 
 cool-admin menu 动态存储在 base_sys_menu 表内，数据记录类型分为三种：
 
-1. type = 0 // 目录
-2. type = 1 // 菜单
-3. type = 2 // 权限
+1. type = 0 `// 目录`
+2. type = 1 `// 菜单`
+3. type = 2 `// 权限`
 
 > 目录与菜单的主要区别在于菜单对应具体的页面，其 viewPath 有指定的 view 组件，而目录则为菜单的父级或者更高。  
 > 每个菜单页面拥有一个或者更多的权限，一条权限记录对应某一个菜单页面上所具备的某一个具体的权限。
 
 cool-admin-vue 客户端 menu store 会从后台获取 menu 数据，并且解析为下面三种存放在 local storage 内：
 
-1. menu.routes // view 路由，viewer 会全部添加到路由 index 下面
-2. menu.group // 菜单组
-3. menu.perms // base_sys_menu 内所有的权限记录字符串
+1. menu.routes `// view 路由，viewer 会全部添加到路由 index 下面`
+2. menu.group `// 菜单组`
+3. menu.perms `// base_sys_menu 内所有的权限记录字符串`
 
 在解析 eps 时，service 最底层每个服务都生成了按照路径命名（使用“:”分隔，如 “base:comm:list”）的 permission 对象，menu store 会使用这个 permission 对象与从后台获取的 menu.perms 逐一对比得到 _permission，例如：
 
