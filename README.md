@@ -508,7 +508,7 @@ service
 
 ## v-permission 指令
 
-参考 cool-admin 官网 [权限]: https://www.cool-admin.com/admin/vue/permission.html，通过指令分析传递给指令的权限字符串或者对象，使用 css display 控制显隐。
+参考 cool-admin 官网 [权限](https://www.cool-admin.com/admin/vue/permission.html)，通过指令分析传递给指令的权限字符串或者对象，使用 css display 控制显隐。
 
 > cool-admin v-permission 指令使用 service 对象内 permission 的值与 menu.perms 进行比较来做显隐判断，其实可以做的还有很多，比如通过 user role 来做显隐判断等等。
 
