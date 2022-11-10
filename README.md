@@ -503,6 +503,19 @@ service
 }
 ```
 
+> permission 对象罗列的是按照 cool-admin 权限字符串命名规则，在解析 eps 时生成的所有可能的权限字符串。v-permission 会使用 permission 对象数据控制一些组件显隐。
+> _permission 对象描述的是 permission 对象内的权限字符串是否已经在被使用。
+
+## v-permission 指令
+
+参考 cool-admin 官网 [权限]: https://www.cool-admin.com/admin/vue/permission.html，通过指令分析传递给指令的权限字符串或者对象，使用 css display 控制显隐。
+
+> cool-admin v-permission 指令使用 service 对象内 permission 的值与 menu.perms 进行比较来做显隐判断，其实可以做的还有很多，比如通过 user role 来做显隐判断等等。
+
 ## role
+
+cool-admin 用户（ user ），角色（ role ），部门（ department ），ER图：
+
+![user_role_department_ER](https://raw.githubusercontent.com/bj75326/image-bed/main/images/cl_user_role_dep.png)
 
 # CRUD
