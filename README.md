@@ -24,38 +24,7 @@
           "tag": "",
           "prefix": "/admin/base/comm"
         },
-        {
-          "method": "get",
-          "path": "/permmenu",
-          "summary": "权限与菜单",
-          "dts": {},
-          "tag": "",
-          "prefix": "/admin/base/comm"
-        },
-        {
-          "method": "get",
-          "path": "/person",
-          "summary": "个人信息",
-          "dts": {},
-          "tag": "",
-          "prefix": "/admin/base/comm"
-        },
-        {
-          "method": "post",
-          "path": "/upload",
-          "summary": "文件上传",
-          "dts": {},
-          "tag": "",
-          "prefix": "/admin/base/comm"
-        },
-        {
-          "method": "post",
-          "path": "/logout",
-          "summary": "退出",
-          "dts": {},
-          "tag": "",
-          "prefix": "/admin/base/comm"
-        }
+        ...
       ],
       "columns": [],
       "prefix": "/admin/base/comm"
@@ -79,30 +48,7 @@
           "tag": "",
           "prefix": "/admin/base/open"
         },
-        {
-          "method": "post",
-          "path": "/login",
-          "summary": "登录",
-          "dts": {},
-          "tag": "",
-          "prefix": "/admin/base/open"
-        },
-        {
-          "method": "get",
-          "path": "/html",
-          "summary": "获得网页内容的参数值",
-          "dts": {},
-          "tag": "",
-          "prefix": "/admin/base/open"
-        },
-        {
-          "method": "get",
-          "path": "/eps",
-          "summary": "实体信息与路径",
-          "dts": {},
-          "tag": "",
-          "prefix": "/admin/base/open"
-        }
+        ...
       ],
       "columns": [],
       "prefix": "/admin/base/open"
@@ -126,30 +72,7 @@
           "tag": "",
           "prefix": "/admin/base/sys/department"
         },
-        {
-          "method": "post",
-          "path": "/order",
-          "summary": "排序",
-          "dts": {},
-          "tag": "",
-          "prefix": "/admin/base/sys/department"
-        },
-        {
-          "method": "post",
-          "path": "/list",
-          "summary": "列表查询",
-          "dts": {},
-          "tag": "",
-          "prefix": "/admin/base/sys/department"
-        },
-        {
-          "method": "post",
-          "path": "/add",
-          "summary": "新增",
-          "dts": {},
-          "tag": "",
-          "prefix": "/admin/base/sys/department"
-        }
+        ...
       ],
       "name": "BaseSysDepartmentEntity",
       "columns": [
@@ -167,34 +90,7 @@
           "comment": "部门名称",
           "nullable": false
         },
-        {
-          "propertyName": "parentId",
-          "type": "bigint",
-          "length": "",
-          "comment": "上级部门ID",
-          "nullable": true
-        },
-        {
-          "propertyName": "orderNum",
-          "type": "number",
-          "length": "",
-          "comment": "排序",
-          "nullable": false
-        },
-        {
-          "propertyName": "createTime",
-          "type": "datetime",
-          "length": "",
-          "comment": "创建时间",
-          "nullable": false
-        },
-        {
-          "propertyName": "updateTime",
-          "type": "datetime",
-          "length": "",
-          "comment": "更新时间",
-          "nullable": false
-        }
+        ...
       ],
       "prefix": "/admin/base/sys/department"
     },{...},{...},{...},{...},
@@ -217,46 +113,7 @@
           "tag": "",
           "prefix": "/admin/base/sys/user"
         },
-        {
-          "method": "post",
-          "path": "/move",
-          "summary": "移动部门",
-          "dts": {},
-          "tag": "",
-          "prefix": "/admin/base/sys/user"
-        },
-        {
-          "method": "get",
-          "path": "/info",
-          "summary": "单个信息",
-          "dts": {},
-          "tag": "",
-          "prefix": "/admin/base/sys/user"
-        },
-        {
-          "method": "post",
-          "path": "/list",
-          "summary": "列表查询",
-          "dts": {},
-          "tag": "",
-          "prefix": "/admin/base/sys/user"
-        },
-        {
-          "method": "post",
-          "path": "/page",
-          "summary": "分页查询",
-          "dts": {},
-          "tag": "",
-          "prefix": "/admin/base/sys/user"
-        },
-        {
-          "method": "post",
-          "path": "/add",
-          "summary": "新增",
-          "dts": {},
-          "tag": "",
-          "prefix": "/admin/base/sys/user"
-        }
+        ...
       ],
       "name": "BaseSysUserEntity",
       "columns": [
@@ -274,97 +131,7 @@
           "comment": "部门ID",
           "nullable": true
         },
-        {
-          "propertyName": "name",
-          "type": "string",
-          "length": "",
-          "comment": "姓名",
-          "nullable": true
-        },
-        {
-          "propertyName": "username",
-          "type": "string",
-          "length": "100",
-          "comment": "用户名",
-          "nullable": false
-        },
-        {
-          "propertyName": "password",
-          "type": "string",
-          "length": "",
-          "comment": "密码",
-          "nullable": false
-        },
-        {
-          "propertyName": "passwordV",
-          "type": "number",
-          "length": "",
-          "comment": "密码版本, 作用是改完密码，让原来的token失效",
-          "nullable": false
-        },
-        {
-          "propertyName": "nickName",
-          "type": "string",
-          "length": "",
-          "comment": "昵称",
-          "nullable": true
-        },
-        {
-          "propertyName": "headImg",
-          "type": "string",
-          "length": "",
-          "comment": "头像",
-          "nullable": true
-        },
-        {
-          "propertyName": "phone",
-          "type": "string",
-          "length": "20",
-          "comment": "手机",
-          "nullable": true
-        },
-        {
-          "propertyName": "email",
-          "type": "string",
-          "length": "",
-          "comment": "邮箱",
-          "nullable": true
-        },
-        {
-          "propertyName": "remark",
-          "type": "string",
-          "length": "",
-          "comment": "备注",
-          "nullable": true
-        },
-        {
-          "propertyName": "status",
-          "type": "tinyint",
-          "length": "",
-          "comment": "状态 0:禁用 1：启用",
-          "nullable": false
-        },
-        {
-          "propertyName": "socketId",
-          "type": "string",
-          "length": "",
-          "comment": "socketId",
-          "nullable": true
-        },
-        {
-          "propertyName": "createTime",
-          "type": "datetime",
-          "length": "",
-          "comment": "创建时间",
-          "nullable": false
-        },
-        {
-          "propertyName": "updateTime",
-          "type": "datetime",
-          "length": "",
-          "comment": "更新时间",
-          "nullable": false
-        }
+        ...
       ],
       "prefix": "/admin/base/sys/user"
     }
@@ -374,6 +141,8 @@
   "task": [{...}]
 }
 ```
+
+> column 用于菜单页 table。
 
 ## 扩充 service 对象
 
@@ -386,7 +155,7 @@
       namesapce: "admin/base/comm";
       logout: Function;
       permission: {
-        "list": "base:comm:list";
+        "list": "base:comm:list"; // 按照 eps 路径生成的权限字符串
         "page": "base:comm:page";
         "info": "base:comm:info";
         "update": "base:comm:update";
@@ -447,7 +216,7 @@
 
 ## create menu
 
-
+todo
 
 # 权限管理
 
@@ -512,10 +281,29 @@ service
 
 > cool-admin v-permission 指令使用 service 对象内 permission 的值与 menu.perms 进行比较来做显隐判断，其实可以做的还有很多，比如通过 user role 来做显隐判断等等。
 
-## role
+## 角色列表
+
+角色列表菜单页维护角色数据，只显示当前用户所拥有的角色。
 
 cool-admin 用户（ user ），角色（ role ），部门（ department ），ER图：
 
 ![user_role_department_ER](https://raw.githubusercontent.com/bj75326/image-bed/main/images/cl_user_role_dep.png)
+
+role 可以配置功能权限和数据权限：
+
+1. 功能权限：配置角色对各个目录、菜单、权限（对应 menu 三种类型）的权限，后台参考表 base_sys_role_menu。
+2. 数据权限：配置角色对各个部门的数据权限，后台参考 base_sys_role_department。
+
+## 菜单列表
+
+菜单列表菜单页维护目录、菜单、权限（对应 menu 三种类型）的数据，按照当前用户角色配置的**功能权限**显示数据。
+
+## 用户列表
+
+用户列表菜单页维护用户数据，按照当前用户角色配置的**数据权限**显示数据。
+
+## 总结
+
+
 
 # CRUD
